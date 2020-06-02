@@ -36,7 +36,7 @@ function Login() {
     }
     return (
             (state.loggedin) ? <Redirect to="/myHomescreen"/> :
-                <Card className=" appCards mt-5 mx-auto">
+                <Card className="appCards col-6 m-auto mt-5">
                     <Card.Header>Login</Card.Header>
                     <Card.Body className="p-auto">
                         <Form className="p-4">

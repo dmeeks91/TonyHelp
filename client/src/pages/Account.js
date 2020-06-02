@@ -9,7 +9,7 @@ import Members from "../components/Members";
 
 function Account(){
     return(
-        <HouseholdConsumer>
+        <HouseholdConsumer className="p-5">
                {(context) => {
                 return(
                     <CardColumns className="row mx-2">

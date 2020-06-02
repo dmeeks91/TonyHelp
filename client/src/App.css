@@ -70,6 +70,8 @@ input[type='email']{
   color: #ec6447;
 }
 
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -104,7 +106,7 @@ input[type='email']{
   }
 }
 
-@media (min-width: 2000px) {
+@media (min-width: 2500px) {
   .appCol-xl-4 {
       -webkit-box-flex: 0;
       -ms-flex: 0 0 33.33%;

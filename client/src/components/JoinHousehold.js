@@ -2,14 +2,18 @@ import React, {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
 
 export function JoinHousehold({context}){
-    const {currentUser, addUserToHousehold, households} = context
+    const {addUserToHousehold, households} = context;
+
+    const [isValid, setIsValid] = useState(false);
 
     const [newHousehold, setnewHousehold] = useState({});
 
-    const handleChange = ({name, value}) => {
+    const handleChange = (target) => {
+        const {name, value} = target;
+        const match = households.filter(({name, _id}) => (value === name || value === _id))
+        setIsValid(match.length>0)
         setnewHousehold({
             [name]: value
         });
@@ -17,6 +21,7 @@ export function JoinHousehold({context}){
 
     const onSubmit = () => {
         addUserToHousehold(newHousehold._id);
+        // setValidated(true);
     }
 
     return (
@@ -26,22 +31,14 @@ export function JoinHousehold({context}){
             <Form>
             <Form.Group>
                 <Form.Label>Join a Household</Form.Label>
-                <Form.Control as="select" size="lg" onChange={(e) => handleChange(e.target)} name="_id" custom>
-                    <option>
-                        select
-                    </option>
-                {
-                    households.map((household)=>{
-                    return (
-                        <option key={household._id} value={household._id} >
-                        {household.name}
-                        </option>
-                    )
-                    })
-                }
-              </Form.Control>
+                <Form.Control 
+                    type="text" size="lg" name="_id" custom 
+                    onChange={(e) => handleChange(e.target)} />
+                <Form.Control.Feedback type="invalid">
+                    Please provide a valid Household ID or Name
+                </Form.Control.Feedback>
             </Form.Group>
-            <Button variant="primary" onClick={onSubmit}>
+            <Button variant="join" disabled={!isValid} onClick={onSubmit}>
                 Join Household
             </Button>
             </Form>

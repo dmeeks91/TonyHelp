@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import { Redirect } from "react-router-dom";
 import { useStoreContext } from "../utils/GlobalState";
 import { LOGIN } from "../utils/actions";
@@ -9,9 +12,8 @@ function Signup() {
     const [user,setUser] = useState({username: "", password : "", email : ""});
 
 
-    const onChange = event =>{
-        // console.log('this is who to update!!', event.target.name)
-        setUser({...user, [event.target.name] : event.target.value})
+    const handleChange = ({name, value}) =>{
+        setUser({...user, [name] : value})
     }
 
     const handleClick = (e) => {
@@ -37,31 +39,32 @@ function Signup() {
 
     return (
         (state.loggedin) ? <Redirect to="/myHomescreen"/> :
-        <div className="container my-5 bg-light p-5">
-            <h2 className="text-center">SignUp</h2>
-            <form className="mt-4 col-6">
-                <div className="form-group">
-                    <label>Display Name</label>
-                    <input name="displayName" onChange={onChange} type="username" className="form-control" placeholder="Enter display name" />
-                </div>
-                <div className="form-group">
-                    <label>Username </label>
-                    <input name="username" onChange={onChange} type="username" className="form-control" placeholder="Enter username" />
-                </div>
-                <div className="form-group">
-                    <label>Password</label>
-                    <input name="password" onChange={onChange} type="password" className="form-control" placeholder="Password" />
-                </div>
-                <div className="form-group">
-                    <label>Email address</label>
-                    <input name="email" onChange={onChange} type="email" className="form-control" aria-describedby="emailHelp" placeholder="Enter email" />
-                </div>
-
-
-                <button onClick={handleClick} className="btn btn-dark btn-lg" data-toggle="modal" data-target=".bd-example-modal-sm">Submit</button>
-
-            </form>
-        </div>
+            <Card className="appCards col-6 m-auto mt-5">
+                <Card.Header>Sign Up</Card.Header>
+                <Card.Body className="p-auto ">
+                    <Form className="p-4">
+                        <Form.Group>
+                            <Form.Label>Display Name</Form.Label>
+                            <Form.Control name="displayName" type="text" onChange={(e) => handleChange(e.target)} />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>UserName</Form.Label>
+                            <Form.Control name="username" type="text" onChange={(e) => handleChange(e.target)} />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control name="password" type="password" onChange={(e) => handleChange(e.target)} />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control name="email" type="text" onChange={(e) => handleChange(e.target)} />
+                        </Form.Group>
+                        <Button className="mt-4" variant="primary" onClick={handleClick}>
+                            Submit
+                        </Button>
+                    </Form>
+                </Card.Body>
+            </Card>
     );
 }
 
