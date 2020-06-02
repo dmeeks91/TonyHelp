@@ -1,0 +1,279 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font: 1.6rem Helvetica;
+  height: 100vh;
+  margin: 0;
+  background-image: url("./images/friendlybackground.png");
+  background-position: center;
+  background-size: cover;
+}
+
+#root {
+  height: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 5 rem;
+}
+
+.header{
+  height: 160px;
+  grid-area: header;
+  background-color: #f4f5f7;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid #ec6447;
+  box-shadow: 0 3px 6px 
+  #942844, 0 3px 6px; 
+  position: relative;
+}
+
+.brand a {
+  color: #ffffff;
+  font-size: 2.5 rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header-links a {
+  color: #ec6447;
+  text-decoration: none;
+}
+
+.header-links a:hover {
+  color: #ec6447;
+}
+
+.main {
+  grid-area: main;
+  padding: 40px;
+  overflow: auto;
+  padding-bottom: 100px;
+}
+
+.footer {
+  background-color: #ec6447;
+  position: fixed;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  /* height: 100%; */
+  padding: 10px;
+  clear: both;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: whitesmoke;
+}
+
+.households {
+  display: flex;
+}
+
+.household li {
+  list-style-type: none;
+  padding: 0;
+  flex: 0 1 34rem;
+  margin: 1 rem;
+  height: 50 rem;
+  border-bottom: 0.1rem;
+}
+
+.household {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+
+.pending{
+  padding-left: 20px;
+  border: .1rem #942844 solid;
+  border-radius: 0.5 rem;
+  padding: 1 rem;
+  justify-content: center;
+}
+
+.head-title{
+  text-align: center;
+}
+
+
+.button{
+  padding: 1 rem;
+  border: .1 rem #942844 solid;
+  cursor: pointer;
+}
+
+.card {
+  padding-top: 10px;
+  background: #fff;
+  border-radius: 2px;
+  margin: 1rem;
+  position: relative;
+  box-shadow: 0 3px 6px 
+#942844, 0 3px 6px 
+#942844;
+  text-align: center;
+  display: flex;
+}
+
+
+.card > .households {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 15px;
+  text-align: center;
+}
+
+.card > .households > ul {
+  list-style-type: none;
+}
+
+.card > .households > ul > li {
+  margin-top: 18px;
+}
+
+.btn, .btn-1{
+	padding: 10px 40px;
+  margin: auto;
+	border-radius: 10px;
+	color: #ffffff;
+  text-decoration: none;
+	background-color: #ec6447;
+	border-bottom: 5px solid #942844;
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
+
+.profile-info main {
+  position: relative;
+}
+
+.details {
+  /* display: flex; */
+  justify-content: align-center;
+  align-items: flex-start;
+  width: fit-content;
+  padding-left: 40px;
+  /* border: black;
+  border-radius: 0.5 rem; */
+}
+
+.details-info {
+  flex: 1 1 30 rem;
+}
+
+.details-action {
+  flex: 1 1 30 rem;
+  padding-right: 100px;
+}
+
+.details-info ul,
+.details-action ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.details-info li,
+.details-action li {
+  margin-bottom: 1 rem;
+}
+
+.pending {
+  padding-left: 20px;
+  border: 0.1rem #808080 solid;
+  border-radius: 0.5 rem;
+  padding: 1 rem;
+  justify-content: center;
+  font-size: 15px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  border: .1 rem #942844 solid;
+}	
+
+.members {
+  text-align: left;
+  padding: 60;
+  font-size: 15px;
+}
+
+.row {margin: 0 -5px;}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.text{
+  text-align: center;
+}
+
+.group{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.bless{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+.head-title {
+  text-align: center;
+}
+
+.button {
+  padding: 1 rem;
+  border: 0.1 rem #808080 solid;
+  cursor: pointer;
+}
+
+/* .form{
+  position: relative
+} */
+
+.data{
+  font-weight: 900;
+}
